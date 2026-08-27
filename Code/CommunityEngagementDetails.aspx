@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Community Engagement Details" Language="C#" MasterPageFile="~/Intake/ApplicationEntry/ApplicationEntryLayout.master" AutoEventWireup="true" CodeBehind="CommunityEngagementDetails.aspx.cs" Inherits=" Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical.CommunityEngagementDetails" %>
+<%@ Page Title="Community Engagement Details" Language="C#" MasterPageFile="~/Intake/ApplicationEntry/ApplicationEntryLayout.master" AutoEventWireup="true" CodeBehind="CommunityEngagementDetails.aspx.cs" Inherits=" Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical.CommunityEngagementDetails" %>
 
 <%@ MasterType VirtualPath="~/Intake/ApplicationEntry/ApplicationEntryLayout.master" %>
 
@@ -147,7 +147,7 @@
                                         ClientInstanceName="ddeCEBeginDate" 
                                         AutoPostBack="false" SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="True" ErrorText="Begin Date is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents 
                                             LostFocus="function(s,e) {var x = true; x = DateLostFocus(s,'ddeCEBeginDate', false); e.processOnServer = x; checkLegacyBeginYear(s); }" 
@@ -181,9 +181,6 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" ID="cbRegularlyTakeCareOfDependent" name="cbRegularlyTakeCareOfDependent" runat="server" 
                                         ValueType="System.Boolean" Value='<%# Bind("RegularTakecareIndicator") %>' AutoPostBack="false" 
                                         OnSelectedIndexChanged="CbRegularlyTakeCareOfDependent_SelectedIndexChanged" ClientInstanceName="cbRegularlyTakCareOfDependent" TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { RegularTakecareIndicator(s); }" Init="function(s,e) { RegularTakecareIndicator(s); }" />
                                     </dx:ASPxComboBox>
                                 </td>
@@ -210,7 +207,7 @@
                                         Value='<%# Bind("CareTakerPersonID") %>' AutoPostBack="false" OnSelectedIndexChanged="CbWho_SelectedIndexChanged" 
                                         ClientInstanceName="cbWho" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="Who is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { fncWho(s); }" />
                                     </dx:ASPxComboBox>
@@ -239,7 +236,7 @@
                                         Value='<%# Bind("ParentOrLegalGuardianIndicator") %>' AutoPostBack="false" OnSelectedIndexChanged="CbParentOrLegalGuardian_SelectedIndexChanged" 
                                         ClientInstanceName="cbParentOrLegalGuardian" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="Parent or legal guardian is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { fncParentOrLegalGuardianChange(s); }" 
                                             Init="function(s,e) { fncParentOrLegalGuardianChange(); }" />
@@ -268,7 +265,7 @@
                                         ClientInstanceName="cbWhenLegalGuardianProvideCare" runat="server" ValueType="System.String" Value='<%# Bind("WhenLegalGuardianProvideCareCode") %>'
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you provide care is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncWhenLegalGuardianProvideCareChange(s); }" 
                                             Init="function(s,e) { fncWhenLegalGuardianProvideCareChange(s); }" />
@@ -297,7 +294,7 @@
                                         runat="server" Value='<%# Bind("StopLegalGuardianProvideCareDate") %>' ClientInstanceName="ddeStopLegalGuardianProvideCare" 
                                         AutoPostBack="false" SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you stop providing care is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeStopLegalGuardianProvideCare');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeStopLegalGuardianProvideCare') }" />
@@ -326,7 +323,7 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" Enabled="true" ID="cbCareTakerRelationship" ClientInstanceName="cbCareTakerRelationship" 
                                         runat="server" ValueType="System.String" Value='<%# Bind("CareTakerRelationshipCode") %>' TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Relationship with the person being cared for is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncCareTakerRelationshipChange(s); }" 
                                             Init="function(s,e) { fncCareTakerRelationshipChange(s); }" />
@@ -356,7 +353,7 @@
                                         ClientInstanceName="cbWhenCareTakerRelationship" runat="server" ValueType="System.String" Value='<%# Bind("WhenCareTakerRelationshipCode") %>' 
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you provide care is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncWhenCareTakerRelationshipChange(s); }" 
                                             Init="function(s,e) { fncWhenCareTakerRelationshipChange(s); }" />
@@ -384,7 +381,7 @@
                                     <dx:ASPxDateEdit ID="dateStopProvidingCareDateTime" ClientIDMode="Static" EditFormatString="MM/dd/yyyy" runat="server" 
                                         ClientInstanceName="ddeStopProvidingCareDateTime" Value='<%# Bind("StopProvidingCareDate") %>' AutoPostBack="false" SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you stop providing care is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeStopProvidingCareDateTime');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeStopProvidingCareDateTime') }" />
@@ -415,7 +412,7 @@
                                         ClientInstanceName="cbLiveWithPersonBeingCaredFor" runat="server" ValueType="System.String" Value='<%# Bind("LiveWithPersonBeingCaredForCode") %>' 
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Live with the person while giving care is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncLiveWithPersonBeingCaredForChange(s); }" 
                                             Init="function(s,e) { fncLiveWithPersonBeingCaredForChange(s); }" />
@@ -445,7 +442,7 @@
                                         Value='<%# Bind("StopLivingwithPersonDate") %>' 
                                         ClientInstanceName="ddeStopLivingwithPersonDate" AutoPostBack="false" SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you stop living with the person is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeStopLivingwithPersonDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeStopLivingwithPersonDate') }" />
@@ -475,7 +472,7 @@
                                         ClientInstanceName="ddeStopTakingCareDate" Value='<%# Bind("StopTakingCareDate") %>' AutoPostBack="false" 
                                         SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="When did you stop taking care of the person is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeStopTakingCareDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeStopTakingCareDate') }" />
@@ -506,7 +503,7 @@
                                         EditFormatString="MM/dd/yyyy" runat="server" ClientInstanceName="ddeStopLivingWithPersonWhileGivingCareDate"
                                         Value='<%# Bind("StopLivingWithPersonWhileGivingCareDate") %>' AutoPostBack="false" SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you stop living with the person is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'dateStopLivingWithPersonWhileGivingCareDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'dateStopLivingWithPersonWhileGivingCareDate') }" />
@@ -536,7 +533,7 @@
                                         runat="server" ClientInstanceName="dateStopTakingCarePersonDate" Value='<%# Bind("StopTakingCarePersonDate") %>' 
                                         AutoPostBack="false" SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you stop taking care of the person is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'dateStopTakingCarePersonDate');}"
                                             Init="function(s,e) {InitializeStartDate(s,'dateStopTakingCarePersonDate') }" />
@@ -566,7 +563,7 @@
                                         ClientInstanceName="cbReceivedProvidingCare" runat="server" ValueType="System.String" Value='<%# Bind("ReceivedProvidingCareCode") %>' 
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Paid or received something for providing care is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncReceivedProvidingCareChange(s); }"
                                             Init="function(s,e) { fncReceivedProvidingCareChange(s); }" />
@@ -589,7 +586,7 @@
                                         ClientInstanceName="cbReceivedProvidingCareVerifiedBy" runat="server" ValueType="System.String"
                                         Value='<%# Bind("ReceivedProvidingCareVerifiedByCode") %>' TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Caretaker Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -616,9 +613,6 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" Enabled="true" ID="cbCorrectionalInLast12Months"
                                         ClientInstanceName="cbCorrectionalInLast12Months" runat="server" ValueType="System.Boolean" 
                                         Value='<%# Bind("CorrectionalInLast12MonthsIndicator") %>' TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncCorrectionalInLast12MonthsChange(s); }"
                                             Init="function(s,e) { fncCorrectionalInLast12MonthsChange(s); }" />
                                     </dx:ASPxComboBox>
@@ -688,9 +682,6 @@
                                 <td>
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" ID="cbParticipatingInWorkProgram" runat="server" ValueType="System.Boolean" 
                                         Value='<%# Bind("ParticipatingInWorkProgramIndicator") %>' AutoPostBack="false" ClientInstanceName="cbParticipatingInWorkProgram" TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { ParticipatingInWorkProgramIndicator(s); }" />
                                     </dx:ASPxComboBox>
                                 </td>
@@ -717,9 +708,6 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" ID="cbParticipatingInUnpaidWork" runat="server" ValueType="System.Boolean" 
                                         Value='<%# Bind("ParticipatingInUnpaidWorkIndicator") %>' AutoPostBack="false" ClientInstanceName="cbParticipatingInUnpaidWork" 
                                         TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { ParticipatingInUnpaidWorkIndicator(s); }" />
                                     </dx:ASPxComboBox>
                                 </td>
@@ -773,9 +761,6 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" Enabled="true" ID="cbSeriousMedicalCondition" 
                                         ClientInstanceName="cbSeriousMedicalConditionIndicator" runat="server" ValueType="System.Boolean" 
                                         Value='<%# Bind("SeriousMedicalConditionIndicator") %>' TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncSeriousMedicalConditionChange(s); }" 
                                             Init="function(s,e) { fncSeriousMedicalConditionChange(s); }" />
                                     </dx:ASPxComboBox>
@@ -795,7 +780,7 @@
                                         ClientInstanceName="cbSeriousMedicalConditionVerifiedByCode" runat="server" ValueType="System.String" 
                                         Value='<%# Bind("SeriousMedicalConditionVerifiedByCode") %>' TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Serious Medical Condition Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -822,7 +807,7 @@
                                         Value='<%# Bind("SeriousMedicalconditionStatusCode") %>' AutoPostBack="false" 
                                         OnSelectedIndexChanged="CbSeriousMedicalconditionStatus_SelectedIndexChanged" ClientInstanceName="cbSeriousMedicalconditionStatusCode" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you have this condition (Serious Medical Condition) is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { SeriousMedicalconditionStatusCode(s); }" 
                                             Init="function(s,e) { SeriousMedicalconditionStatusCode(s); }" />
@@ -851,7 +836,7 @@
                                         ClientInstanceName="ddeEndSeriousConditionDate" Value='<%# Bind("EndSeriousConditionDate") %>' AutoPostBack="false" 
                                         SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="End Date of Serious Medical Condition is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'dateEndSeriousConditionDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'dateEndSeriousConditionDate') }" />
@@ -880,9 +865,6 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" Enabled="true" ID="cbSubstanceUseDisorder" 
                                         ClientInstanceName="cbSubstanceUseDisorderIndicator" runat="server" ValueType="System.Boolean" Value='<%# Bind("SubstanceUseDisorderIndicator") %>' 
                                         TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncSubstanceUseDisorderChange(s); }" 
                                             Init="function(s,e) { fncSubstanceUseDisorderChange(s); }" />
                                     </dx:ASPxComboBox>
@@ -903,7 +885,7 @@
                                         Value='<%# Bind("SubstanceUseDisorderVerifiedByCode") %>' 
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Substance Use Disorder Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -931,7 +913,7 @@
                                         Value='<%# Bind("SubstanceUseDisorderStatusCode") %>' AutoPostBack="false" 
                                         OnSelectedIndexChanged="CbSubstanceUseDisorderStatus_SelectedIndexChanged" ClientInstanceName="cbSubstanceUseDisorderStatusCode" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you have this condition (Substance Use Disorder) is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { SubstanceUseDisorderStatusCode(s); }" 
                                             Init="function(s, e) { SubstanceUseDisorderStatusCode(s); }" />
@@ -961,7 +943,7 @@
                                         Value='<%# Bind("EndSubstanceDisorderDate") %>' ClientInstanceName="ddeEndSubstanceDisorderDate" AutoPostBack="false"
                                         SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="End Date of Substance Use Disorder is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeEndSubstanceDisorderDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeEndSubstanceDisorderDate') }" />
@@ -990,9 +972,6 @@
                                 <td>
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" Enabled="true" ID="cbDisabledBySSA" 
                                         ClientInstanceName="cbDisabledBySSAIndicator" runat="server" ValueType="System.Boolean" Value='<%# Bind("DisabledBySSAIndicator") %>' TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncDisabledBySSAChange(s); }" 
                                             Init="function(s,e) { fncDisabledBySSAChange(s); }" />
                                     </dx:ASPxComboBox>
@@ -1012,7 +991,7 @@
                                         ClientInstanceName="cbDisabledBySSAVerifiedByCode" runat="server" ValueType="System.String" Value='<%# Bind("DisabledBySSAVerifiedByCode") %>' 
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Disabled by SSA Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -1038,7 +1017,7 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" ID="cbWhenDetermined" runat="server" ValueType="System.String"
                                         Value='<%# Bind("WhenDeterminedCode") %>' AutoPostBack="false" OnSelectedIndexChanged="CbWhenDetermined_SelectedIndexChanged" ClientInstanceName="cbWhenDetermined" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When were you determined (SSA) is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { WhenDetermined(s); }" 
                                             Init="function(s, e) { WhenDetermined(s); }" />
@@ -1067,7 +1046,7 @@
                                         runat="server" ClientInstanceName="ddeEndSSADeterminationDate" Value='<%# Bind("EndSSADeterminationDate") %>' 
                                         AutoPostBack="false" SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="End Date of SSA determination is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeEndSSADeterminationDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeEndSSADeterminationDate') }" />
@@ -1097,9 +1076,6 @@
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" Enabled="true" ID="cbDisablingMentalDisorder"
                                         ClientInstanceName="cbDisablingMentalDisorderIndicator" runat="server" ValueType="System.Boolean" 
                                         Value='<%# Bind("DisablingMentalDisorderIndicator") %>' TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncDisablingMentalDisorderChange(s); }" 
                                             Init="function(s,e) { fncDisablingMentalDisorderChange(s); }" />
                                     </dx:ASPxComboBox>
@@ -1120,7 +1096,7 @@
                                         ClientInstanceName="cbDisablingMentalDisorderVerifiedByCode" runat="server" ValueType="System.String" 
                                         Value='<%# Bind("DisablingMentalDisorderVerifiedByCode") %>' TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Disabling Mental Disorder Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -1149,7 +1125,7 @@
                                         AutoPostBack="false" OnSelectedIndexChanged="CbWhenDisablingMentalDisorder_SelectedIndexChanged"
                                         ClientInstanceName="cbWhenDisablingMentalDisorder" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you have this condition (Disabling Mental Disorder) is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { DisablingMentalDisorderStatus(s); }"
                                             Init="function(s, e) { DisablingMentalDisorderStatus(s); }" />
@@ -1179,7 +1155,7 @@
                                         runat="server" ClientInstanceName="ddeEndDisablingMentalDisorderDate" AutoPostBack="false" Value='<%# Bind("EndDisablingMentalDisorderDate") %>' 
                                         SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="End Date of Disabling Mental Disorder is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeEndDisablingMentalDisorderDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeEndDisablingMentalDisorderDate') }" />
@@ -1208,9 +1184,6 @@
                                 <td>
                                     <dx:ASPxComboBox IncrementalFilteringMode="StartsWith" Enabled="true" ID="cbPhysicalDisability" ClientInstanceName="cbPhysicalDisabilityIndicator"
                                         runat="server" ValueType="System.Boolean" Value='<%# Bind("PhysicalDisabilityIndicator") %>' TabIndex="0">
-                                        <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
-                                        </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s,e) { fncPhysicalDisabilityChange(s); }"
                                             Init="function(s,e) { fncPhysicalDisabilityChange(s); }" />
                                     </dx:ASPxComboBox>
@@ -1230,7 +1203,7 @@
                                         ClientInstanceName="cbPhysicalDisabilityVerifiedByCode" runat="server" ValueType="System.String" 
                                         Value='<%# Bind("PhysicalDisabilityVerifiedByCode") %>' TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Physical Disability Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -1257,7 +1230,7 @@
                                         ValueType="System.String" Value='<%# Bind("WhenPhysicalDisabilityCode") %>' AutoPostBack="false" 
                                         OnSelectedIndexChanged="CbWhenPhysicalDisability_SelectedIndexChanged" ClientInstanceName="cbWhenPhysicalDisability" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="When did you have this condition (Physical Disability) is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents SelectedIndexChanged="function(s, e) { WhenPhysicalDisabilityIndicator(s); }" 
                                             Init="function(s, e) { WhenPhysicalDisabilityIndicator(s); }" />
@@ -1286,7 +1259,7 @@
                                         ClientInstanceName="ddeEndPhysicalDisabilityDate" AutoPostBack="false" Value='<%# Bind("EndPhysicalDisabilityDate") %>'
                                         SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                            <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                            <RequiredField IsRequired="False" ErrorText="End Date of Physical Disability is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents DropDown="function(s,e){calenderClick(s,'ddeEndPhysicalDisabilityDate');}" 
                                             Init="function(s,e) {InitializeStartDate(s,'ddeEndPhysicalDisabilityDate') }" />
@@ -1399,7 +1372,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                         ClientInstanceName="cbHospitalizedSeriousConditionVerifiedByCode" runat="server" ValueType="System.String" 
                                         Value='<%# Bind("HospitalizedSeriousConditionVerifiedByCode") %>' TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Hospitalized Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -1426,7 +1399,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                         Value='<%# Bind("HospitalizedBeginDate") %>' ClientInstanceName="ddeHospitalizedBeginDate" AutoPostBack="false"
                                         SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Hospitalized Begin Date is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents LostFocus="function(s,e) {var x = true; x = DateLostFocus(s,'ddeHospitalizedBeginDate', false); e.processOnServer = x;}" 
                                             DropDown="function(s,e){calenderClick(s,'ddeHospitalizedBeginDate');}" />
@@ -1446,7 +1419,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                     <dx:ASPxDateEdit ID="ddeHospitalizedEndDate" ClientIDMode="Static" EditFormatString="MM/dd/yyyy" runat="server" 
                                         Value='<%# Bind("HospitalizedEndDate") %>' SkinID="RetrieveClear" ClientInstanceName="ddeHospitalizedEndDate" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Hospitalized End Date is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents LostFocus="function(s,e) {DateLostFocus(s,'ddeHospitalizedEndDate', false);}" 
                                             DropDown="function(s,e){calenderClick(s,'ddeHospitalizedEndDate');}"
@@ -1515,7 +1488,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                         ClientInstanceName="cbHospitalizedJustification" runat="server" ValueType="System.String" Value='<%# Bind("HospitalizedJustificationCode") %>' 
                                         OnSelectedIndexChanged="CbHospitalizedJustification_SelectedIndexChanged" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Hospitalized Justification is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -1562,7 +1535,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                         ClientInstanceName="cbTravelOutOfAreaMedicalVerifiedBy" runat="server" ValueType="System.String"
                                         Value='<%# Bind("TravelOutOfAreaMedicalVerifiedByCode") %>' TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Travel Out of Area Verified By is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -1590,7 +1563,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                         AutoPostBack="false"
                                         SkinID="RetrieveClear" TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Travel Out of Area Begin Date is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents LostFocus="function(s,e) {var x = true; x = DateLostFocus(s,'ddeTravelOutOfAreaMedicalBeginDate', false); e.processOnServer = x;}" 
                                             DropDown="function(s,e){calenderClick(s,'ddeTravelOutOfAreaMedicalBeginDate');}" />
@@ -1611,7 +1584,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                         runat="server" Value='<%# Bind("TravelOutOfAreaMedicalEndDate") %>' SkinID="RetrieveClear" ClientInstanceName="ddeTravelOutOfAreaMedicalEndDate"
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Travel Out of Area End Date is required." />
                                         </ValidationSettings>
                                         <ClientSideEvents LostFocus="function(s,e) {DateLostFocus(s,'ddeTravelOutOfAreaMedicalEndDate', false);}" 
                                             DropDown="function(s,e){calenderClick(s,'ddeTravelOutOfAreaMedicalEndDate');}"
@@ -1681,7 +1654,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
                                         Value='<%# Bind("TravelOutOfAreaMedicalJustificationCode") %>' OnSelectedIndexChanged="CbTravelOutOfAreaMedicalJustification_SelectedIndexChanged" 
                                         TabIndex="0">
                                         <ValidationSettings SetFocusOnError="True">
-                                             <RequiredField IsRequired="True" ErrorText="Please fill in all mandatory fields." />
+                                             <RequiredField IsRequired="False" ErrorText="Travel Out of Area Justification is required." />
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                 </td>
@@ -2054,7 +2027,7 @@ font-size: 9pt;">This field is applicable when a new individual is added to an O
     <ContentCollection>
         <dx:PopupControlContentControl runat="server" ID="pcmandatoryfieldscontent">
             <dx:ASPxLabel runat="server" ID="lblMandatoryFieldsMessage" Width="330px" 
-                Text="Page fill in all mdnatory fields." />
+                Text="Please fill in all mandatory fields." />
         </dx:PopupControlContentControl>
     </ContentCollection>
     <FooterTemplate>
