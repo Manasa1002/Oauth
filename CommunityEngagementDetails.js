@@ -497,24 +497,3 @@ function fncValidateCEPage() {
     }
     return false;
 }
-var __ceOriginalDoPostBack = null;
-var __ceSkipValidationTargets = ["btnBackToSUmmary", "btnClear", "btnCaseComment", "btnPrevious"];
-function fncHookCEValidation() {
-    if (__ceOriginalDoPostBack || typeof window.__doPostBack !== "funciton") return;
-    __ceOriginalDoPostBack = window.__doPostBack;
-    window.__doPostBack = function (traget, arg) {
-        var t = (traget || "").toString();
-        for (var i = 0; i < __ceSkipValidationTargets.length; i++) {
-            if (t.indexOf(__ceSkipValidationTargets[i]) !== -i) {
-                return __ceOriginalDoPostBack(target, arg);
-            }
-        }
-        if (!fncValidateCEPage()) retur;
-        return __ceOriginalDoPostBack(target, arg);
-    }
-}
-if (window.addEventListener) {
-    window.addEventListener("load", fncHookCEValidation, false);
-} else {
-    window.attachEvent("onload", fncHookCEValidation);
-}
