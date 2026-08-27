@@ -1,4 +1,4 @@
-﻿using DevExpress.Data.WcfLinq.Helpers;
+using DevExpress.Data.WcfLinq.Helpers;
 using DevExpress.Web.ASPxEditors;
 using Dhss.Assist.WorkerWeb.Entity.ApplicationEntry.Technical;
 using Dhss.Assist.WorkerWeb.Web.Infrastructure.Context;
@@ -389,7 +389,7 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
 
         public void BindCEEntities()
         {
-            fvTechnical_CommunityEngagement.FindControl("cbRegularlyTakeCareOfDependent").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
+            fvTechnical_CommunityEngagement.FindControl("cbRegularlyTakeCareOfDependent").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
             fvTechnical_CommunityEngagement.FindControl("cbParentOrLegalGuardian").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
             System.Web.HttpContext.Current.Cache.Remove("ReferenceTable_AECEPR_VERIF-CD_DESC-TXT");
 
@@ -410,9 +410,9 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             cbReceivedProvidingCare.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.CarePayment);
             RefreshComboText(cbReceivedProvidingCare);
 
-            fvTechnical_CommunityEngagement.FindControl("cbParticipatingInWorkProgram").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
-            fvTechnical_CommunityEngagement.FindControl("cbParticipatingInUnpaidWork").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
-            fvTechnical_CommunityEngagement.FindControl("cbCorrectionalInLast12Months").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
+            fvTechnical_CommunityEngagement.FindControl("cbParticipatingInWorkProgram").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
+            fvTechnical_CommunityEngagement.FindControl("cbParticipatingInUnpaidWork").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
+            fvTechnical_CommunityEngagement.FindControl("cbCorrectionalInLast12Months").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
 
             var cbReceivedProvidingCareVerifiedBy = fvTechnical_CommunityEngagement.FindControl("cbReceivedProvidingCareVerifiedBy") as ASPxComboBox;
             cbReceivedProvidingCareVerifiedBy.Bind<TechnicalCommunityEngagementDetailsMetaData>(y => y.VerifyBy);
@@ -437,7 +437,7 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
         public void BindCEMedicalDetailsEntities()
         {
             var fvMD = fvTechnical_CommunityEngagementMedicalDetails;
-            fvMD.FindControl("cbSeriousMedicalCondition").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
+            fvMD.FindControl("cbSeriousMedicalCondition").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
 
             var cbSeriousMedicalConditionVerifiedBy = fvMD.FindControl("cbSeriousMedicalConditionVerifiedBy") as ASPxComboBox;
             cbSeriousMedicalConditionVerifiedBy.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.VerifyBy);
@@ -447,7 +447,7 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             cbSeriousMedicalconditionStatus.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.ConditionStatus);
             RefreshComboText(cbSeriousMedicalconditionStatus);
 
-            fvMD.FindControl("cbSubstanceUseDisorder").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
+            fvMD.FindControl("cbSubstanceUseDisorder").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
 
             var cbSubstanceUseDisorderVerifiedBy = fvMD.FindControl("cbSubstanceUseDisorderVerifiedBy") as ASPxComboBox;
             cbSubstanceUseDisorderVerifiedBy.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.VerifyBy);
@@ -457,7 +457,7 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             cbSubstanceUseDisorderStatus.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.ConditionStatus);
             RefreshComboText(cbSubstanceUseDisorderStatus);
 
-            fvMD.FindControl("cbDisabledBySSA").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
+            fvMD.FindControl("cbDisabledBySSA").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
 
             var cbDisabledBySSAVerifiedBy = fvMD.FindControl("cbDisabledBySSAVerifiedBy") as ASPxComboBox;
             cbDisabledBySSAVerifiedBy.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.VerifyBy);
@@ -467,7 +467,7 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             cbWhenDetermined.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.Determined);
             RefreshComboText(cbWhenDetermined);
 
-            fvMD.FindControl("cbDisablingMentalDisorder").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
+            fvMD.FindControl("cbDisablingMentalDisorder").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
 
             var cbDisablingMentalDisorderVerifiedBy = fvMD.FindControl("cbDisablingMentalDisorderVerifiedBy") as ASPxComboBox;
             cbDisablingMentalDisorderVerifiedBy.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.VerifyBy);
@@ -477,7 +477,7 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             cbWhenDisablingMentalDisorder.Bind<TechnicalCommunityEngagementDetailsMetaData>(x => x.ConditionStatus);
             RefreshComboText(cbWhenDisablingMentalDisorder);
 
-            fvMD.FindControl("cbPhysicalDisability").Bind<CommonDataValidation>(x => x.YesNoCodeBit);
+            fvMD.FindControl("cbPhysicalDisability").Bind<CommonDataValidation>(x => x.YesNoCodeBitRequired);
 
             var cbPhysicalDisabilityVerifiedBy = fvMD.FindControl("cbPhysicalDisabilityVerifiedBy") as ASPxComboBox;
             cbPhysicalDisabilityVerifiedBy.Bind<TechnicalCommunityEngagementDetailsMetaData>(y => y.VerifyBy);
@@ -526,56 +526,15 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             }
         }
 
-        private readonly List<string> _validationErrors = new List<string>();
-
-        private void RequiredCombo(ASPxComboBox cb, string label, bool applies = true)
-        {
-            if (!applies) return;
-            if (cb == null || cb.Value == null || string.IsNullOrWhiteSpace(cb.Value.ToString()))
-            {
-                _validationErrors.Add(label);
-            }
-        }
-        private void RequiredCombo(ASPxDateEdit de, string label, bool applies = true)
-        {
-            if (!applies) return;
-            if (de == null || de.Date == DateTime.MinValue)
-            {
-                _validationErrors.Add(label);
-            }
-        }
-
-
         /// <summary>
         /// SaveData
         /// </summary>
         public override void SaveData()
         {
-            _validationErrors.Clear();
-            var fv = fvTechnical_CommunityEngagement;
-            var fvMD = fvTechnical_CommunityEngagementMedicalDetails;
-            var fvHW = fvTechnical_CommunityEngagementHardshipWaiver;
-            var cbWorkProgram = fv.FindControl("cbParticipatingInWorkProgram") as ASPxComboBox;
-            var cbUnpaidWork = fv.FindControl("cbParticipatingInUnpaidWork") as ASPxComboBox;
-
-            RequiredCombo(cbWorkProgram, "Participating in a Work Program");
-            RequiredCombo(cbUnpaidWork, "Volunteering or Participating in Unpaid Work");
-
-            var cbPhysicalDisability = fvMD.FindControl("cbPhysicalDisability") as ASPxComboBox;
-            RequiredCombo(cbPhysicalDisability, "Physical/Intellectual/developmental disability");
-            if (cbPhysicalDisability != null && IsYes(cbPhysicalDisability))
-            {
-                RequiredCombo(fvMD.FindControl("cbPhysicalDisabilityVerifiedBy") as ASPxComboBox, "Physical Disability Verified By");
-                RequiredCombo(fvMD.FindControl("cbWhenPhysicalDisability") as ASPxComboBox, "When did you have this condition");
-            }
-            if (_validationErrors.Count > 0)
-            {
-                _pageValidationFailed = true;
-                ShowPopupInfo(IntakeResourceManager.MANDATORY_FIELDS_MESSAGE);
-                return;
-            }
-
-            _pageValidationFailed = false;
+            // Mandatory-field validation is enforced client-side by DevExpress RequiredField
+            // validators (conditionally required fields declared via metadata binding in
+            // BindCEEntities/BindCEMedicalDetailsEntities and toggled by the page JS), so the
+            // postback only reaches here once the page is valid. No server-side popup.
             using (var scope = new TransactionScope())
             {
                 SaveDataCEMHDeatils();
@@ -588,10 +547,6 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             fvTechnical_CommunityEngagementHardshipWaiver.DataBind();
             SetPageComplete();
             SetPageComplete(IntakeConstants.COMMUNITYENGAGEMENT_SUMMARY_AE, true);
-            //if (!_showhardshipwaiverpopup)
-            //{
-            //    showpopupinfo(intakeresourcemanager.save_success_message);
-            //}
         }
 
         /// <summary>
@@ -903,25 +858,13 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
             }
 
         }
-        /// <summary>
-        /// NavigateToNextPageOfVolunteeringWorkProgramUnpaidWorkSummary
-        /// </summary>
-        protected void NavigateToNextPageOfVolunteeringWorkProgramUnpaidWorkSummary()
-        {
-            //TechnicalSessionContext.Instance.IsVolunteeringWorkProgramBackToSummary = false;
-            //NavigateTo(n => n.Name == IntakeConstants.VOLUNTEERING_WORK_PROGRAM_UNPAID_WORK_SUMMARY_AE);
-        }
-        private bool _pageValidationFailed;
 
         /// <summary>
-        /// Leaves Details using the same Response.Redirect pattern as Back To Summary.
-        /// base.NavigateNext() is not used here because it reloads this page for the next
-        /// record in context instead of moving to the next screen.
+        /// NavigateNext. Client-side validation gates the postback, so reaching here means the
+        /// page is valid; simply continue the workflow navigation.
         /// </summary>
         public override void NavigateNext()
         {
-            if (_pageValidationFailed) return;
-
             ResumeNavigation();
         }
         private void ResumeNavigation()
@@ -1000,20 +943,5 @@ namespace Dhss.Assist.WorkerWeb.Web.Intake.ApplicationEntry.Technical
                 NavigateToSummary();
             }
         }
-
-        //private bool _showUnsavedChagnesPopup;
-
-        //private string _pedingNavigation
-        //{
-        //    get { return Session["CE_PendingNavigation"] as string; }
-        //    set
-        //    {
-        //        if (string.IsNullOrEmpty(value))
-        //            Session.Remove("CE_PendingNavigation");
-        //        else
-        //            Session["CE_PendingNavigation"] = value;
-        //    }
-        //}
-
     }
 }
